@@ -1,7 +1,7 @@
 var data = JSON.parse(localStorage.getItem("inpData"));
 var array = JSON.parse(localStorage.getItem("keyArray"));
 
-// console.log(data);
+console.log(data);
 function view(id, value) {
 	if (value) {
 		var val = document.createTextNode(value);
