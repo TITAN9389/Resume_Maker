@@ -53,12 +53,12 @@ function createRes() {
 	inputs$.temp = selectedTemp;
 	var keys = [];
 	document.querySelectorAll(".text_field").forEach(function(input) {
-		if (input.value.trim()) {
-			inputs$[input.id] = input.value;
+		// if (input.value.trim()) {
+			inputs$[input.id] = input.value.trim();
 			keys.push(input.id);
 			return;
-		}
-		inputs$[input.id] = null;
+		// }
+		// inputs$[input.id] = null;
 	});
 	localStorage.setItem("inpData", JSON.stringify(inputs$));
 	localStorage.setItem("keyArray", JSON.stringify(keys));
