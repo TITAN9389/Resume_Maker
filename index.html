@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" href="favico.png">
+    <title>My CV Maker</title>
+</head>
+
+<body class="bg-fixed">
+    <div id="wrapper">
+        <div id="page">
+            <!--        HEADER-->
+            <div id="header">
+                <header>
+                    <h2>My CV Maker</h2>
+                </header>
+            </div>
+            <div id="content" class="clearfix">
+                <!--        TABS-->
+                <div id="tab_wrapper" class="tab_wrapper">
+                    <ul class="tabs">
+                        <li id="tabs1" class="tab" onclick="showTab(this)"><a href="#basic"><span>Basic Info</span></a></li>
+                        <li id="tabs2" class="tab" onclick="showTab(this)"><a href="#work"><span>Work Experience</span></a></li>
+                        <li id="tabs3" class="tab" onclick="showTab(this)"><a href="#educ"><span>Education</span></a></li>
+                        <li id="tabs4" class="tab" onclick="showTab(this)"><a href="#skill"><span>Skills & Lang</span></a></li>
+                        <li id="tabs5" class="tab" onclick="showTab(this)"><a href="#cover"><span>Cover Letter</span></a></li>
+                    </ul>
+                </div>
+                <!--        PERSONAL INFO FORM-->
+                <div id="paper">
+                    <form id="cv" method="post" name="cv_form">
+                        <!-- SELECTING TEMPLATE -->
+                        <div id="tabs-0" class="tab_cont">
+                        <div>
+                            <input id="temp1" type="radio" onclick="tempSelect(this)" name="temp" value="1">
+                            <label class="resum_1" for="temp1"></label>
+                        </div>
+
+                        <!-- LATER <DEV PROBLEMS> -->
+                        <div>
+                            <label class="resum_2" for="temp2"></label>
+                            <input id="temp2" type="radio" onclick="tempSelect(this)" name="temp" value="2">
+                        </div>
+                        <div>
+                            <input id="temp3" type="radio" onclick="tempSelect(this)" name="temp" value="3">
+                            <label class="resum_3" for="temp3"></label>
+                        </div>
+                        <button class="block_button" type="button" onclick="str()">Select</button>
+                        </div>
+                        <!--                BASIC INFO-->
+                        <div id="tabs-1" class="tab_cont">
+                            <!--                <label>Basic Info</label>-->
+                            <div id="basic_info" class="info_container">
+                                <p>
+                                    <label for="name">Full Name</label>
+                                    <input id="name" class="text_field" type="text" name="name" value="">
+                                </p>
+                                <p>
+                                    <label for="email">E-Mail</label>
+                                    <input id="email" class="text_field" type="email" name="email" value="">
+                                </p>
+                                <p>
+                                    <label for="phone">Phone Number</label>
+                                    <input id="phone" class="text_field" type="tel" name="phone" value="">
+                                </p>
+                                <p>
+                                    <label for="web">Website</label>
+                                    <input id="web" class="text_field" type="url" name="website" value="">
+                                </p>
+                                <p>
+                                    <label for="add1">Address Line 1</label>
+                                    <input id="add1" class="text_field" type="text" name="address1" value="">
+                                </p>
+                                <p>
+                                    <label for="add2">Address Line 2</label>
+                                    <input id="add2" class="text_field" type="text" name="address2" value="">
+                                </p>
+                            </div>
+                            <div id="pp_info">
+                                <label for="pp">Upload Your Picture</label>
+                                <input id="pp" type="file" name="pp" value="" onchange="uppp(this)">
+                            </div>
+                        </div>
+                        <!--                    WORK INFO-->
+                        <div id="tabs-2" class="tab_cont">
+                            <!--                    <label>Work Experience</label>-->
+                            <div id="work_info" class="info_container">
+                                <p>
+                                    <input id="title1" type="text" class="text_field" placeholder="Job Title / Position" name="title1" value="">
+                                    <input id="company1" type="text" class="text_field" placeholder="Company Name" name="company1" value="">
+                                    <input id="date1" type="text" class="text_field" placeholder="From / To" name="date1" value="">
+                                </p>
+                                <p>
+                                    <input id="title2" type="text" class="text_field" placeholder="Job Title / Position" name="title2" value="">
+                                    <input id="company2" type="text" class="text_field" placeholder="Company Name" name="company2" value="">
+                                    <input id="date2" type="text" class="text_field" placeholder="From / To" name="date2" value="">
+                                </p>
+                                <p>
+                                    <input id="title3" type="text" class="text_field" placeholder="Job Title / Position" name="title3" value="">
+                                    <input id="company3" type="text" class="text_field" placeholder="Company Name" name="company3" value="">
+                                    <input id="date3" type="text" class="text_field" placeholder="From / To" name="date3" value="">
+                                </p>
+                                <p>
+                                    <input id="title4" type="text" class="text_field" placeholder="Job Title / Position" name="title4" value="">
+                                    <input id="company4" type="text" class="text_field" placeholder="Company Name" name="company4" value="">
+                                    <input id="date4" type="text" class="text_field" placeholder="From / To" name="date4" value="">
+                                </p>
+                            </div>
+                            <button class="btn_add" type="button" onclick="createWork()">Add More</button>
+                        </div>
+                        <!--                    EDUCATION INFO-->
+                        <div id="tabs-3" class="tab_cont">
+                            <!--                    <label>Education</label>-->
+                            <div id="educ_info" class="info_container">
+                                <p>
+                                    <input id="course1" type="text" class="text_field" placeholder="Course Name" name="course1" value="">
+                                    <input id="institute1" type="text" class="text_field" placeholder="Institution Name" name="institute1" value="">
+                                    <input id="dateE1" type="text" class="text_field" placeholder="From / To" name="dateE1" value="">
+                                </p>
+                                <p>
+                                    <input id="course2" type="text" class="text_field" placeholder="Course Name" name="course2" value="">
+                                    <input id="institute2" type="text" class="text_field" placeholder="Institution Name" name="institute2" value="">
+                                    <input id="dateE2" type="text" class="text_field" placeholder="From / To" name="dateE2" value="">
+                                </p>
+                                <p>
+                                    <input id="course3" type="text" class="text_field" placeholder="Course Name" name="course3" value="">
+                                    <input id="institute3" type="text" class="text_field" placeholder="Institution Name" name="institute3" value="">
+                                    <input id="dateE3" type="text" class="text_field" placeholder="From / To" name="dateE3" value="">
+                                </p>
+                            </div>
+                            <button class="btn_add" type="button" onclick="createEduc()">Add More</button>
+                        </div>
+                        <!--                SKILLZ LANG INT-->
+                        <div id="tabs-4" class="tab_cont">
+                            <div id="skill_info" class="info_container">
+                                <p>
+                                    <input id="skill1" type="text" class="text_field" placeholder="Skill" name="skill1" value="">
+                                </p>
+                                <p>
+                                    <input id="skill2" type="text" class="text_field" placeholder="Skill" name="skill2" value="">
+                                </p>
+                                <p>
+                                    <input id="skill3" type="text" class="text_field" placeholder="Skill" name="skill3" value="">
+                                </p>
+                                <p>
+                                    <input id="skill4" type="text" class="text_field" placeholder="Skill" name="skill4" value="">
+                                </p>
+                            </div>
+                            <button class="btn_add" type="button" onclick="createSkill()">Add More</button>
+                            <div id="lang_info" class="info_container">
+                                <p class="langClone">
+                                    <input id="lang1" type="text" class="text_field" placeholder="Language" name="lang1" value="">
+                                    <input id="level1" type="text" class="text_field" placeholder="Level" name="level1" value="">
+                                </p>
+                                <p>
+                                    <input id="lang2" type="text" class="text_field" placeholder="Language" name="lang2" value="">
+                                    <input id="level2" type="text" class="text_field" placeholder="Level" name="level2" value="">
+                                </p>
+                                <p>
+                                    <input id="lang3" type="text" class="text_field" placeholder="Language" name="lang3" value="">
+                                    <input id="level3" type="text" class="text_field" placeholder="Level" name="level3" value="">
+                                </p>
+                                <p>
+                                    <input id="lang4" type="text" class="text_field" placeholder="Language" name="lang4" value="">
+                                    <input id="level4" type="text" class="text_field" placeholder="Level" name="level4" value="">
+                                </p>
+                            </div>
+                            <button class="btn_add" type="button" onclick="createLang()">Add More</button>
+                            <div id="int_info" class="info_container">
+                                <textarea id="inter_info" name="inter" class="text_field no_resize" cols="40" rows="10" placeholder="YOUR INTERESTS" value=""></textarea>
+                            </div>
+                            <!-- <button type="button" onclick="cloneEl('langClone')">CLONE</button> -->
+                        </div>
+                        <!--                COVER LETTER-->
+                        <div id="tabs-5" class="tab_cont">
+                            <div id="cover_letter" class="info_container">
+                                <textarea id="about_me" name="cover" class="text_field no_resize" cols="97.5" rows="15" placeholder="YOUR COVER LETTER / ABOUT YOU" value=""></textarea>
+                            </div>
+                        </div>
+                    </form>
+                    <button id="sub" class="btn" type="button" onclick="createRes()">Create</button>
+                    <button id="res" class="btn" type="reset" onclick="resetForm()">Reset</button>
+                </div>
+                <!--        PERSONAL INFO FORM-->
+            </div>
+            <!--    END OF CONTENT    -->
+            <!--    FOOTER-->
+            <div class="footer">
+                <footer>SebMaz &copy;
+                    <!-- <button id="switch" type="button" class="" onclick="dayNight()">
+                        <div id="circle"></div>
+                    </button> -->
+                </footer>
+            </div>
+            <!--        END OF FOOTER-->
+        </div>
+    </div>
+    <!--    END OF WRAPPER-->
+    <script type="text/javascript" src="assets/js/script.js"></script>
+</body>
+
+</html>
